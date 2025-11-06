@@ -19,19 +19,16 @@ public class MayorYMenorDe3 {
         // me acabe rindiendo y le pregunte a chatGPT
         int[] numeros = new int[3];
         double MAYOR = 0, MENOR = 0;
-        numeros[0] = introducirIntegerScanner("INTRODUCE EL NUMERO a --> ");
-        numeros[1] = introducirIntegerScanner("INTRODUCE EL NUMERO b --> ");
-        numeros[2] = introducirIntegerScanner("INTRODUCE EL NUMERO c --> ");
+        for (int i = 0; i <= 2; i++)
+            numeros[i] = introducirIntegerScanner("INTRODUCE EL NUMERO " + i + " --> ");
         int[] numeros2 = numeros.clone();
         MAYOR = (((numeros[0] + numeros[1] + Math.abs(numeros[0] - numeros[1])) / 2) + numeros[2]
                 + Math.abs(((numeros[0] + numeros[1] + Math.abs(numeros[0] - numeros[1])) / 2) - numeros[2])) / 2;
-
         for (int j = 0; j <= 2; j++)
             if ((numeros2[j] - ((((numeros[0] + numeros[1] + numeros[2]) / 3) - MAYOR / 3)
                     + (Math.abs((((numeros[0] + numeros[1] + numeros[2]) / 3) - (MAYOR / 3))
                             - ((numeros[0] + numeros[1] + numeros[2] - MAYOR) / 2))))) < 0)
                 MENOR = numeros2[j];
-
         System.out.println("el mayor es : " + MAYOR + " y el menor es : " + MENOR);
     }
 }

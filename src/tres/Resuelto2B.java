@@ -8,7 +8,7 @@ public class Resuelto2B {
         int limite = AjustesProgramas.introduceNumeroPorScanner(
                 "INTRODUCE EL NUMERO DE FILAS --> ");
         for (int i = 0; i < limite; i++) {
-            for (int k = limite; k > i; k--)
+            for (int k = limite - 1; k > i; k--)
                 System.out.print(" ");
             for (int j = 0; j < 2 * i + 1; j++)
                 System.out.print("*");

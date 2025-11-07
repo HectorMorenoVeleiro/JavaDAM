@@ -1,6 +1,13 @@
 package tres;
 
-public class Propuesto3 {
+/*
+ * if (j == 0 || j == 2 * i + 1)
+                        System.out.print("*");
+                    else
+                        System.out.print(" ");
+ */
+public class Propuesto4 {
+
     public static void main(String[] args) {
         System.out.println(
                 "INTRODUCE EL NUMERO DE FILAS --> ");
@@ -10,17 +17,24 @@ public class Propuesto3 {
                 for (int k = 7 - 1; k > i; k--)
                     System.out.print(" ");
                 for (int j = 0; j < 2 * i + 1; j++) {
-                    System.out.print("*");
+                    if (j == 0)
+                        System.out.print("*");
+                    else
+                        System.out.print(" ");
                 }
             } else {
                 for (int k = -1 + 1; k < i; k++)
                     System.out.print(" ");
                 for (int j = (fakeLimite / 2) + 2; j > 0; j--) {
-                    System.out.print("*");
+                    if (j == 0)
+                        System.out.print("*");
+                    else
+                        System.out.print(" ");
                 }
                 fakeLimite -= (double) 4;
             }
             System.out.println("\n");
         } // bucle externo
     }
+
 }

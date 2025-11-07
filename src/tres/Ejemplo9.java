@@ -5,7 +5,7 @@ public class Ejemplo9 {
         int i = 0;
         bucleext: while (i < 100) {
             i++;
-            for (int j = 0; j < i; j++){
+            for (int j = 0; j < i; j++) {
                 System.out.print("*");
                 if (i == 5) {
                     break bucleext;

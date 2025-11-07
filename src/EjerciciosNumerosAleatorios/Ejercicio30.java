@@ -18,9 +18,8 @@ public class Ejercicio30 {
      * Por favor, introduzca la altura de la pecera (como mínimo 4): 4
      * Ahora introduzca la anchura (como mínimo 4): 7
      * * * * * * *
-     * 
-     * @ & *
-     * $ *
+     * @    &    *
+     * $         *
      * * * * * * *
      */
     public static Scanner sc = new Scanner(System.in);

@@ -38,18 +38,18 @@ public class Ejercicio30 {
         int posicionAlturaCaracola;
         int posicionAnchuraCaracola;
 
-        posicionAlturaPez = (int) (Math.random() * (alturaPecera - 2) + 1);
-        posicionAnchuraPez = (int) (Math.random() * (anchuraPecera - 2) + 1);
+        posicionAlturaPez = (int) (Math.random() * (alturaPecera - 2)) + 2;
+        posicionAnchuraPez = (int) (Math.random() * (anchuraPecera - 2)) + 2;
 
         do {
-            posicionAlturaCaballidoDeMar = (int) (Math.random() * (alturaPecera - 2) + 1);
-            posicionAnchuraCaballidoDeMar = (int) (Math.random() * (anchuraPecera - 2) + 1);
+            posicionAlturaCaballidoDeMar = (int) (Math.random() * (alturaPecera - 2) + 2);
+            posicionAnchuraCaballidoDeMar = (int) (Math.random() * (anchuraPecera - 2) + 2);
         } while (posicionAlturaCaballidoDeMar == posicionAlturaPez
                 && posicionAnchuraCaballidoDeMar == posicionAnchuraPez);
 
         do {
-            posicionAlturaCaracola = (int) (Math.random() * (alturaPecera - 2) + 1);
-            posicionAnchuraCaracola = (int) (Math.random() * (anchuraPecera - 2) + 1);
+            posicionAlturaCaracola = (int) (Math.random() * (alturaPecera - 2) + 2);
+            posicionAnchuraCaracola = (int) (Math.random() * (anchuraPecera - 2) + 2);
         } while ((posicionAlturaCaracola == posicionAlturaPez && posicionAnchuraCaracola == posicionAnchuraPez)
                 || (posicionAlturaCaracola == posicionAlturaCaballidoDeMar
                         && posicionAnchuraCaracola == posicionAnchuraCaballidoDeMar));

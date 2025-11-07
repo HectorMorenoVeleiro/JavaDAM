@@ -18,8 +18,9 @@ public class Ejercicio30 {
      * Por favor, introduzca la altura de la pecera (como mínimo 4): 4
      * Ahora introduzca la anchura (como mínimo 4): 7
      * * * * * * *
-     * @    &    *
-     * $         *
+     * 
+     * @ & *
+     * $ *
      * * * * * * *
      */
     public static Scanner sc = new Scanner(System.in);
@@ -30,22 +31,28 @@ public class Ejercicio30 {
         System.out.print("Ahora introduzca la anchura (como minimo 4): ");
         int anchuraPecera = Integer.parseInt(sc.nextLine()); // minimo 4
 
-        int posicionAlturaPez = (int) (Math.random() * (alturaPecera - 2) + 1);
-        int posicionAnchuraPez = (int) (Math.random() * (anchuraPecera - 2) + 1);
-        int posicionAlturaCaballidoDeMar = 0;
-        int posicionAnchuraCaballidoDeMar = 0;
-        int posicionAlturaCaracola = 0;
-        int posicionAnchuraCaracola = 0;
+        int posicionAlturaPez;
+        int posicionAnchuraPez;
+        int posicionAlturaCaballidoDeMar;
+        int posicionAnchuraCaballidoDeMar;
+        int posicionAlturaCaracola;
+        int posicionAnchuraCaracola;
 
-        while (posicionAlturaCaballidoDeMar == posicionAlturaCaracola
-                || posicionAlturaCaballidoDeMar == posicionAlturaPez
-                || posicionAlturaPez == posicionAlturaCaballidoDeMar) {
+        posicionAlturaPez = (int) (Math.random() * (alturaPecera - 2) + 1);
+        posicionAnchuraPez = (int) (Math.random() * (anchuraPecera - 2) + 1);
 
+        do {
             posicionAlturaCaballidoDeMar = (int) (Math.random() * (alturaPecera - 2) + 1);
             posicionAnchuraCaballidoDeMar = (int) (Math.random() * (anchuraPecera - 2) + 1);
+        } while (posicionAlturaCaballidoDeMar == posicionAlturaPez
+                && posicionAnchuraCaballidoDeMar == posicionAnchuraPez);
+
+        do {
             posicionAlturaCaracola = (int) (Math.random() * (alturaPecera - 2) + 1);
             posicionAnchuraCaracola = (int) (Math.random() * (anchuraPecera - 2) + 1);
-        }
+        } while ((posicionAlturaCaracola == posicionAlturaPez && posicionAnchuraCaracola == posicionAnchuraPez)
+                || (posicionAlturaCaracola == posicionAlturaCaballidoDeMar
+                        && posicionAnchuraCaracola == posicionAnchuraCaballidoDeMar));
 
         for (int iteracionAltura = 1; iteracionAltura <= alturaPecera; iteracionAltura++) {
 
@@ -58,7 +65,6 @@ public class Ejercicio30 {
                         System.out.print("* ");
                     else if (iteracionAltura == posicionAlturaPez && iteracionAnchura == posicionAnchuraPez)
                         System.out.print("& ");
-
                     else if (iteracionAltura == posicionAlturaCaballidoDeMar
                             && iteracionAnchura == posicionAnchuraCaballidoDeMar)
                         System.out.print("$ ");

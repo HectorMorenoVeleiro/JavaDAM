@@ -36,5 +36,5 @@ public class Propuesto4 {
             System.out.println("\n");
         } // bucle externo
     }
-
+    // nipu
 }

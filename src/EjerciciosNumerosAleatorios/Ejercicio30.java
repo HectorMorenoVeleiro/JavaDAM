@@ -1,5 +1,7 @@
 package EjerciciosNumerosAleatorios;
 
+import java.util.Scanner;
+
 public class Ejercicio30 {
     /*
      * El pequeño Roberto tenía como mascota un pececillo dentro de una pecera. Los
@@ -21,8 +23,53 @@ public class Ejercicio30 {
      * $ *
      * * * * * * *
      */
+    public static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
+        System.out.print("Por favor, introduzca la altura de la pecera (como minimo 4): ");
+        int alturaPecera = Integer.parseInt(sc.nextLine()); // minimo 4
+        System.out.print("Ahora introduzca la anchura (como minimo 4): ");
+        int anchuraPecera = Integer.parseInt(sc.nextLine()); // minimo 4
 
+        int posicionAlturaPez = (int) (Math.random() * (alturaPecera - 2) + 1);
+        int posicionAnchuraPez = (int) (Math.random() * (anchuraPecera - 2) + 1);
+        int posicionAlturaCaballidoDeMar = 0;
+        int posicionAnchuraCaballidoDeMar = 0;
+        int posicionAlturaCaracola = 0;
+        int posicionAnchuraCaracola = 0;
+
+        while (posicionAlturaCaballidoDeMar == posicionAlturaCaracola
+                || posicionAlturaCaballidoDeMar == posicionAlturaPez
+                || posicionAlturaPez == posicionAlturaCaballidoDeMar) {
+
+            posicionAlturaCaballidoDeMar = (int) (Math.random() * (alturaPecera - 2) + 1);
+            posicionAnchuraCaballidoDeMar = (int) (Math.random() * (anchuraPecera - 2) + 1);
+            posicionAlturaCaracola = (int) (Math.random() * (alturaPecera - 2) + 1);
+            posicionAnchuraCaracola = (int) (Math.random() * (anchuraPecera - 2) + 1);
+        }
+
+        for (int iteracionAltura = 1; iteracionAltura <= alturaPecera; iteracionAltura++) {
+
+            for (int iteracionAnchura = 1; iteracionAnchura <= anchuraPecera; iteracionAnchura++) {
+
+                if (iteracionAltura == 1 || iteracionAltura == alturaPecera)
+                    System.out.print("* ");
+                else {
+                    if (iteracionAnchura == 1 || iteracionAnchura == anchuraPecera)
+                        System.out.print("* ");
+                    else if (iteracionAltura == posicionAlturaPez && iteracionAnchura == posicionAnchuraPez)
+                        System.out.print("& ");
+
+                    else if (iteracionAltura == posicionAlturaCaballidoDeMar
+                            && iteracionAnchura == posicionAnchuraCaballidoDeMar)
+                        System.out.print("$ ");
+                    else if (iteracionAltura == posicionAlturaCaracola && iteracionAnchura == posicionAnchuraCaracola)
+                        System.out.print("@ ");
+                    else
+                        System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
     }
-
 }

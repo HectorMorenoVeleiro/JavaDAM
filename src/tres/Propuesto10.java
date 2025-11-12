@@ -23,14 +23,19 @@ public class Propuesto10 {
          * · condicion de ceros (no pueden terminar ambos en 0)
          */
 
+        // Llamas al numero por escaner
         int numeroVampiro = AjustesProgramas.introduceRangoDeIntegers(10000, 999,
                 "Introduce un número de 4 digitos --> ");
 
         boolean esNumeroVampiro = false;
+
+        // divides el numero en digitos
         int digito1 = numeroVampiro % 10;
         int digito2 = (numeroVampiro / 10) % 10;
         int digito3 = (numeroVampiro / 100) % 10;
         int digito4 = numeroVampiro / 1000;
+
+        // haces todas las combinaciones de digitos
         int operacion1 = digito1 + digito2 * 10;
         int operacion2 = digito1 + digito3 * 10;
         int operacion3 = digito1 + digito4 * 10;
@@ -38,6 +43,8 @@ public class Propuesto10 {
         int operacion5 = digito2 + digito4 * 10;
         int operacion6 = digito4 + digito3 * 10;
 
+        // llamas a un metodo que compruebe si esa combinacion es = numeroVampiro y si
+        // alguna de esas lo es entonces el numero tmb
         if (metodoVampirico(digito1, digito2, numeroVampiro)
                 || metodoVampirico(operacion1, operacion2, numeroVampiro)
                 || metodoVampirico(operacion1, operacion3, numeroVampiro)
@@ -55,6 +62,8 @@ public class Propuesto10 {
                 || metodoVampirico(operacion4, operacion6, numeroVampiro)
                 || metodoVampirico(operacion5, operacion6, numeroVampiro))
             esNumeroVampiro = true;
-        System.out.println(esNumeroVampiro);
+
+        // le comentas tu descubrimiento al colegón que prueba el programa
+        System.out.println("El numero " + numeroVampiro + " es un numero vampiro ? --> " + esNumeroVampiro);
     }
 }

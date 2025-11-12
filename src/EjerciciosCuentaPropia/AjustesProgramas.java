@@ -36,6 +36,10 @@ public class AjustesProgramas {
         return resultado;
     }
 
+    public static void CalculadoraEnTerminal() {
+        CalculadoraEnTerminal.menu();
+    }
+
     public static int cuentaDigitosNumero(int numero) {
         int digitos = 0;
         while (numero > 0) {

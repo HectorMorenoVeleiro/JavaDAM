@@ -34,7 +34,7 @@ public class Ejercicio31 {
             if (primeraTirada == segundaTirada)
                 System.out.println("has ganado");
             else
-                System.out.println("AGAIN");
+                System.out.println("AGAIN.");
         }
         System.out.println(cantidadUsuario);
     }

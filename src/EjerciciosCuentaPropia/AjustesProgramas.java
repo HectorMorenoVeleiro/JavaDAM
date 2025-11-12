@@ -36,6 +36,27 @@ public class AjustesProgramas {
         return resultado;
     }
 
+    public static int cuentaDigitos(int numero) {
+        int digitos = 0;
+        while (numero > 0) {
+            numero /= 10;
+            digitos++;
+        }
+        return digitos;
+    }
+
+    public static int invierteOrdenNumero(int numero) {
+        int potenciaNumero = cuentaDigitos(numero) - 1;
+        int reverso = 0;
+        while (numero > 0) {
+            int cifra = numero % 10;
+            numero /= 10;
+            reverso += cifra * Math.pow(10, potenciaNumero);
+            potenciaNumero--;
+        }
+        return reverso;
+    }
+
     public static int introduceRangoDeIntegers(int rangoSuperior, int rangoInferior, String orden) {
         int numero1;
         while (true) {

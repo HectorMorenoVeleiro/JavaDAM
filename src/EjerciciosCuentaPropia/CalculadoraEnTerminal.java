@@ -1,5 +1,7 @@
 package EjerciciosCuentaPropia;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CalculadoraEnTerminal {
@@ -33,13 +35,16 @@ public class CalculadoraEnTerminal {
             }
         } while (booleano);
 
-        switch (decision) {
-            case 1 -> operacionSuma();
-            case 2 -> operacionResta();
-            case 3 -> operacionMultiplicacion();
-            case 4 -> operacionDivision();
-            case 5 -> salidaUsuario();
-        }
+        Map<Integer, Runnable> decision = new HashMap<>() {
+            {
+                put(1, () -> operacionSuma());
+                put(2, () -> operacionResta());
+                put(3, () -> operacionMultiplicacion());
+                put(4, () -> operacionDivision());
+                put(5, () -> salidaUsuario());
+            }
+        };
+
     }
 
     public static void operacionSuma() {

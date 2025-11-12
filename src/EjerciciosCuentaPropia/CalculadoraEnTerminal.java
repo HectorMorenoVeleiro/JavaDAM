@@ -44,7 +44,6 @@ public class CalculadoraEnTerminal {
                 put(5, () -> salidaUsuario());
             }
         };
-
     }
 
     public static void operacionSuma() {

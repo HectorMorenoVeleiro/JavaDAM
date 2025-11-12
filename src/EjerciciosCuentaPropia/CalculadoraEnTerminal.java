@@ -9,45 +9,6 @@ public class CalculadoraEnTerminal {
     public static boolean booleano;
     public static Scanner scDecision = new Scanner(System.in);
 
-    public CalculadoraEnTerminal(double numero1, double numero2, int decision, boolean booleano) {
-        CalculadoraEnTerminal.numero1 = 0.0;
-        CalculadoraEnTerminal.numero2 = 0.0;
-        CalculadoraEnTerminal.decision = 0;
-        CalculadoraEnTerminal.booleano = false;
-    }
-
-    public static double getNumero1() {
-        return numero1;
-    }
-
-    public static void setNumero1(double numero1) {
-        CalculadoraEnTerminal.numero1 = numero1;
-    }
-
-    public static double getNumero2() {
-        return numero2;
-    }
-
-    public static void setNumero2(double numero2) {
-        CalculadoraEnTerminal.numero2 = numero2;
-    }
-
-    public static int getDecision() {
-        return decision;
-    }
-
-    public static void setDecision(int decision) {
-        CalculadoraEnTerminal.decision = decision;
-    }
-
-    public static boolean isBooleano() {
-        return booleano;
-    }
-
-    public static void setBooleano(boolean booleano) {
-        CalculadoraEnTerminal.booleano = booleano;
-    }
-
     public static void menu() {
         booleano = true;
         System.out.println("\nQue operacion deseas realizar\n"
@@ -73,23 +34,11 @@ public class CalculadoraEnTerminal {
         } while (booleano);
 
         switch (decision) {
-            case 1:
-                operacionSuma();
-                break;
-            case 2:
-                operacionResta();
-                break;
-            case 3:
-                operacionMultiplicacion();
-                break;
-            case 4:
-                operacionDivision();
-                break;
-            case 5:
-                salidaUsuario();
-                break;
-            default:
-                System.out.println("TO MANY ERRORS, FORCED EXIT");
+            case 1 -> operacionSuma();
+            case 2 -> operacionResta();
+            case 3 -> operacionMultiplicacion();
+            case 4 -> operacionDivision();
+            case 5 -> salidaUsuario();
         }
     }
 

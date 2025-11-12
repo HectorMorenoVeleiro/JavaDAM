@@ -36,7 +36,7 @@ public class AjustesProgramas {
         return resultado;
     }
 
-    public static int cuentaDigitos(int numero) {
+    public static int cuentaDigitosNumero(int numero) {
         int digitos = 0;
         while (numero > 0) {
             numero /= 10;
@@ -46,7 +46,7 @@ public class AjustesProgramas {
     }
 
     public static int invierteOrdenNumero(int numero) {
-        int potenciaNumero = cuentaDigitos(numero) - 1;
+        int potenciaNumero = cuentaDigitosNumero(numero) - 1;
         int reverso = 0;
         while (numero > 0) {
             int cifra = numero % 10;

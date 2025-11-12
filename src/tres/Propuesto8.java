@@ -74,6 +74,6 @@ public class Propuesto8 {
             }
         }
         System.out.println(res);
+        sc.close();
     }
-
 }

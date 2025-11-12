@@ -40,8 +40,9 @@ public class Propuesto9 {
         return primo;
     }
 
-    public boolean esOmirp (int numero) {
-        boolean omirp
+    public boolean esOmirp(int numero) {
+        boolean omirp = true;
+        return omirp;
     }
     // pa casa
 

@@ -43,8 +43,8 @@ public class Propuesto10 {
         int operacion5 = digito2 + digito4 * 10;
         int operacion6 = digito4 + digito3 * 10;
 
-        // llamas a un metodo que compruebe si esa combinacion es = numeroVampiro y si
-        // alguna de esas lo es entonces el numero tmb
+        // llamas a un metodo que compruebe si esa combinacion es = numeroVampiro y con
+        // que solo una lo sea entonces se confirma
         if (metodoVampirico(digito1, digito2, numeroVampiro)
                 || metodoVampirico(operacion1, operacion2, numeroVampiro)
                 || metodoVampirico(operacion1, operacion3, numeroVampiro)

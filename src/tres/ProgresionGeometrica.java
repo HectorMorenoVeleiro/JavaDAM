@@ -10,16 +10,16 @@ public class ProgresionGeometrica {
         int diferenciaASumar = AjustesProgramas.introducirIntegerPorScanner("diferencia a sumar --> ");
         int terminoAObtener = AjustesProgramas.introducirIntegerPorScanner("dime que termino deseas obtener --> ");
 
-        int termino = primerNumero;
+        int terminoMomento = primerNumero;
         int acumula = primerNumero;
 
-        for (int i = (int) 'a'; i < 'a' + terminoAObtener; i++) {
-            System.out.print((char) i + ".[" + termino + "]\t");
-            termino *= diferenciaASumar;
+        for (char i = 'a'; i < 'a' + terminoAObtener; i++) {
+            System.out.print(i + ".[" + terminoMomento + "]\t");
+            terminoMomento *= diferenciaASumar;
             // acumula += termino;
         }
 
-        System.out.println("\nel termino " + terminoAObtener + " es: " + termino);
+        System.out.println("\nel termino " + terminoAObtener + " es: " + terminoMomento);
         // System.out.println("la suma de los " + terminoAObtener + " primeros terminos
         // de la sucesion es " + acumula);
 

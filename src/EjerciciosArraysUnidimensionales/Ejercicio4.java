@@ -10,10 +10,21 @@ public class Ejercicio4 {
      * arrays dispuesto en tres columnas.
      */
     public static void main(String[] args) {
+
         int[] arrayNumero = new int[20];
         int[] arrayCuadrado = new int[20];
         int[] arrayCubo = new int[20];
+
         for (int i = 0; i < arrayCuadrado.length; i++) {
+
+            arrayNumero[i] = (int) (Math.random() * 100 + 1);
+            arrayCuadrado[i] = (int) Math.pow(arrayNumero[i], 2);
+            arrayCubo[i] = (int) Math.pow(arrayNumero[i], 3);
+
+            System.out.print(
+                    "numero " + (i + 1) + ": [" + arrayNumero[i] + "]\t\tcuadrado del numero: [" + arrayCuadrado[i]
+                            + "]\t\tcubo del numero: [" + arrayCubo[i] + "]\n");
+
         }
     }
 }

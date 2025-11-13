@@ -8,10 +8,10 @@ public class AritmeticaRec {
     // metodo sacar termino n gracias a conocer el termino anterior a el
     public static int terminoEne(int primerNumero, int diferencia) {
         // recursividad
-        if (algo)
+        if (primerNumero > diferencia)
             return primerNumero;
         // recursividad caso generico
-        else (algo)
+        else
             return terminoEne(primerNumero, diferencia);
     }
 

@@ -1,120 +1,109 @@
 package EjerciciosCuentaPropia;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
+import java.util.Map;
+
+/*
+ * "Calculadora" its a class which main function relies on doing
+ * 4 different operations (add, subs, mul, div) without saving 
+ * the answer that is given as a result, making use of a simple
+ * menu to choose between options.
+ */
 
 public class CalculadoraEnTerminal {
-
-    public static double numero1, numero2;
+    public static double numero1, numero2, num;
     public static int decision;
-    public static boolean booleano;
-    public static Scanner scDecision = new Scanner(System.in);
+    public static Scanner sc = new Scanner(System.in);
 
-    public static void menu() {
-        booleano = true;
-        System.out.println("\nQue operacion deseas realizar\n"
-                + "\n\t(1) Suma"
-                + "\n\t(2) Resta"
-                + "\n\t(3) Multiplicacion"
-                + "\n\t(4) Division"
-                + "\n\t(5) Salir"
-                + "\n_________________________________");
-
-        do {
-            if (scDecision.hasNextInt()) {
-                decision = Integer.parseInt(scDecision.nextLine());
-                booleano = false;
+    public static int fijarIntervaloInt(int intervaloMinimo, int intervaloMaximo) { // Methot that fixate and interval
+                                                                                    // between two options of a menu
+        int valor;
+        while (true) {
+            if (sc.hasNextInt()) {
+                valor = sc.nextInt();
+                sc.nextLine();
+                if (valor >= intervaloMinimo && valor <= intervaloMaximo)
+                    return valor;
             } else {
-                scDecision.nextLine();
-                booleano = true;
+                System.out
+                        .println("Introduce un número entero entre " + intervaloMinimo + " y " + intervaloMaximo + ":");
+                sc.nextLine();
             }
-            if (((decision < 1) || (decision > 5))) {
-                System.out.println("Por favor, introduce un entero");
-                booleano = true;
-            }
-        } while (booleano);
-
-        Map<Integer, Runnable> decision = new HashMap<>() {
-            {
-                put(1, () -> operacionSuma());
-                put(2, () -> operacionResta());
-                put(3, () -> operacionMultiplicacion());
-                put(4, () -> operacionDivision());
-                put(5, () -> salidaUsuario());
-            }
-        };
+        }
     }
 
-    public static void operacionSuma() {
-        System.out.println("\nintroduce el primer numero a sumar: \n");
-        numero1 = scDecision.nextDouble();
-        scDecision.nextLine();
-        System.out.println("\nintroduce el segundo numero a sumar\n");
-        numero2 = scDecision.nextDouble();
-        scDecision.nextLine();
+    public static double introduceNumero(String orden, String operacion) { // Class with the purpose of making a number.
+        System.out.println("\nIntroduce el " + orden + " número a " + operacion + ": \n");
+        while (!sc.hasNextDouble()) {
+            System.out.println("ERROR, NUMERO DECIMAL NON DETECTED: ");
+            sc.nextLine();
+        }
+        num = sc.nextDouble();
+        sc.nextLine();
+        return num;
+    }
+
+    public static void menu() { // Methot that makes a menu to choose between operations.
+        System.out.println("""
+                Que operación deseas realizar
+
+                \t(1) Suma
+                \t(2) Resta
+                \t(3) Multiplicación
+                \t(4) División
+                \t(5) Salir
+                _________________________________""");
+        decision = fijarIntervaloInt(1, 5);
+
+        Map<Integer, Runnable> operaciones = Map.of( // Map that saves the functions with a key for execution.
+                1, CalculadoraEnTerminal::operacionSuma,
+                2, CalculadoraEnTerminal::operacionResta,
+                3, CalculadoraEnTerminal::operacionMultiplicacion,
+                4, CalculadoraEnTerminal::operacionDivision,
+                5, CalculadoraEnTerminal::salidaUsuario);
+        operaciones.getOrDefault(decision, () -> System.out.println("TOO MANY ERRORS, FORCED EXIT")).run();
+        // Exit Default.
+    }
+
+    public static void operacionSuma() { // // Introduce two numbers to operate with them (add).
+        numero1 = introduceNumero("primer", "sumar");
+        numero2 = introduceNumero("segundo", "sumar");
         System.out.println("\nLa suma de " + numero1 + " + " + numero2 + " da: " + (numero1 + numero2));
         salidaUsuario();
     }
 
-    public static void operacionResta() {
-        System.out.println("\nintroduce el primer numero a restar: \n");
-        numero1 = scDecision.nextDouble();
-        scDecision.nextLine();
-        System.out.println("\nintroduce el segundo numero a restar: \n");
-        numero2 = scDecision.nextDouble();
-        scDecision.nextLine();
+    public static void operacionResta() { // Introduce two numbers to operate with them (sub).
+        numero1 = introduceNumero("primer", "restar");
+        numero2 = introduceNumero("segundo", "restar");
         System.out.println("\nLa resta de " + numero1 + " - " + numero2 + " da: " + (numero1 - numero2));
         salidaUsuario();
     }
 
-    public static void operacionMultiplicacion() {
-        System.out.println("\nintroduce el primer numero a multiplicar: \n");
-        numero1 = scDecision.nextDouble();
-        scDecision.nextLine();
-        System.out.println("\nintroduce el segundo numero a multiplicar: \n");
-        numero2 = scDecision.nextDouble();
-        scDecision.nextLine();
-        System.out.println("\nLa multiplicacion de " + numero1 + " * " + numero2 + " da: " + (numero1 * numero2));
+    public static void operacionMultiplicacion() { // Introduce two numbers to operate with them (mul).
+        numero1 = introduceNumero("primer", "multiplicar");
+        numero2 = introduceNumero("segundo", "multiplicar");
+        System.out.println("\nLa multiplicación de " + numero1 + " * " + numero2 + " da: " + (numero1 * numero2));
         salidaUsuario();
     }
 
-    public static void operacionDivision() {
-        System.out.println("\nintroduce el primer numero a dividir: \n");
-        numero1 = scDecision.nextDouble();
-        scDecision.nextLine();
-        System.out.println("\nintroduce el segundo numero a dividir: \n");
-        numero2 = scDecision.nextDouble();
-        scDecision.nextLine();
-        System.out.println("\nLa division de " + numero1 + " / " + numero2 + " da: " + (numero1 / numero2));
+    public static void operacionDivision() { // Introduce two numbers to operate with them (div).
+        numero1 = introduceNumero("primer", "dividir");
+        numero2 = introduceNumero("segundo", "dividir");
+        System.out.println("\nLa división de " + numero1 + " / " + numero2 + " da: " + (numero1 / numero2));
         salidaUsuario();
     }
 
-    public static void salidaUsuario() {
-        System.out.println("\nDeseas salir?\n"
-                + "\n\t(1) Salir"
-                + "\n\t"
-                + "\n\t(2) Menu"
-                + "\n_________________________________");
-
-        do {
-            if (scDecision.hasNextInt()) {
-                decision = Integer.parseInt(scDecision.nextLine());
-                booleano = false;
-            } else {
-                scDecision.nextLine();
-                booleano = true;
-            }
-            if (((decision < 1) || (decision > 2))) {
-                System.out.println("Por favor, introduce un entero");
-                booleano = true;
-            }
-        } while (booleano);
-
-        if (decision == 1) {
-            System.out.println("\nPROGRAM CLOSED");
-        } else if (decision == 2) {
+    public static void salidaUsuario() { // Methot which makes an menu to exit the program.
+        System.out.println("""
+                \n¿Deseas salir?
+                \n\t(1) Menu
+                \t(2) Salir
+                _________________________________""");
+        int respuesta = fijarIntervaloInt(1, 2);
+        if (respuesta == 1) {
             menu();
+        } else {
+            System.out.println("\nPROGRAM CLOSED"); // Closes the program.
         }
     }
 }

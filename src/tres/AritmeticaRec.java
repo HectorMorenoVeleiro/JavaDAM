@@ -6,12 +6,13 @@ public class AritmeticaRec {
     // programa que muestre los 50 primeros pares
 
     // metodo sacar termino n gracias a conocer el termino anterior a el
-    public static int terminoEne(int primerNumero, ) {
-        
-        //recursividad
-        
-    
-        return primerNumero;
+    public static int terminoEne(int primerNumero, int diferencia) {
+        // recursividad
+        if (algo)
+            return primerNumero;
+        // recursividad caso generico
+        else (algo)
+            return terminoEne(primerNumero, diferencia);
     }
 
     public static void main(String[] args) {

@@ -13,13 +13,13 @@ public class ProgresionGeometrica {
         int termino = primerNumero;
         int acumula = primerNumero;
 
-        for (int i = primerNumero; i < terminoAObtener; i++) {
-            System.out.println(termino + " ");
+        for (int i = (int) 'a'; i < 'a' + terminoAObtener; i++) {
+            System.out.print((char) i + ".[" + termino + "]\t");
             termino *= diferenciaASumar;
             // acumula += termino;
         }
 
-        System.out.println("el termino " + terminoAObtener + " es: " + termino);
+        System.out.println("\nel termino " + terminoAObtener + " es: " + termino);
         // System.out.println("la suma de los " + terminoAObtener + " primeros terminos
         // de la sucesion es " + acumula);
 

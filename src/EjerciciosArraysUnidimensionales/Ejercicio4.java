@@ -10,6 +10,10 @@ public class Ejercicio4 {
      * arrays dispuesto en tres columnas.
      */
     public static void main(String[] args) {
-
+        int[] arrayNumero = new int[20];
+        int[] arrayCuadrado = new int[20];
+        int[] arrayCubo = new int[20];
+        for (int i = 0; i < arrayCuadrado.length; i++) {
+        }
     }
 }

@@ -4,7 +4,7 @@ public class Propuesto3 {
     public static void main(String[] args) {
         System.out.println(
                 "INTRODUCE EL NUMERO DE FILAS --> ");
-        int fakeLimite = 7 + 3;
+        int fakeLimite = 5 + 3;
         for (int i = 0; i < 7; i++) {
             if (i < 7 / 2) {
                 for (int k = 7 - 1; k > i; k--)

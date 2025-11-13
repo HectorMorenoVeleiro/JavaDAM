@@ -2,7 +2,7 @@ package tres;
 
 import EjerciciosClase.AjustesProgramas;
 
-public class ProgresionGeometrica {
+public class AritmeticaRec {
     // programa que muestre los 50 primeros pares
     public static void main(String[] args) {
 
@@ -13,11 +13,11 @@ public class ProgresionGeometrica {
         int terminoMomento = primerNumero;
         int acumula = primerNumero;
 
-        for (char i = 'a'; i < 'a' + terminoAObtener; i++) {
-            System.out.print(i + ".[" + terminoMomento + "]\t");
-            terminoMomento *= diferenciaASumar;
-            acumula += terminoMomento;
-        }
+        // for (char i = 'a'; i < 'a' + terminoAObtener; i++) {
+        // System.out.print(i + ".[" + terminoMomento + "]\t");
+        // terminoMomento *= diferenciaASumar;
+        // acumula += terminoMomento;
+        // }
 
         System.out.println("\nel termino " + terminoAObtener + " es: " + terminoMomento);
         System.out.println("la suma de los " + terminoAObtener + " primeros terminos de la sucesion es " + acumula);

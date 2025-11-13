@@ -28,29 +28,41 @@ public class Ejercicio32 {
      * | |
      */
     public static void main(String[] args) {
+
         char[] snake = new char[] { '|', ' ', 'O', '*' };
+
         int longitudSerpiente = AjustesProgramas
                 .introducirIntegerPorScanner(
                         "Introduce la longitud de la serpiente en caracteres contando la cabeza --> ");
+
         int rango = 13;
+
         for (int i = 0; i < longitudSerpiente; i++) {
+
             for (int j = 0; j < rango; j++)
                 System.out.print(snake[1]);
+
             if (Math.random() < 0.5)
                 System.out.print(snake[0] + (String.valueOf(snake[1]).repeat(4)) + snake[0] + "\n");
+
             else if (Math.random() < 0.5)
+
                 if (Math.random() < 0.5)
                     System.out
                             .print(snake[0] + " " + snake[2] + (String.valueOf(snake[1]).repeat(2)) + snake[0] + "\n");
+
                 else
                     System.out
                             .print(snake[0] + (String.valueOf(snake[1]).repeat(2)) + snake[2] + " " + snake[0] + "\n");
+
             else if (Math.random() < 0.5)
                 System.out
                         .print(snake[0] + " " + snake[3] + (String.valueOf(snake[1]).repeat(2)) + snake[0] + "\n");
+
             else
                 System.out
                         .print(snake[0] + (String.valueOf(snake[1]).repeat(2)) + snake[3] + " " + snake[0] + "\n");
+
             rango = rango - ((int) (Math.random() * 3 - 1));
         }
     }

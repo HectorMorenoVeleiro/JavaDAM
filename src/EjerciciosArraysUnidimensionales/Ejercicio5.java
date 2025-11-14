@@ -6,5 +6,7 @@ public class Ejercicio5 {
      * números introducidos junto con las palabras “máximo” y “mínimo” al lado del
      * máximo y del mínimo respectivamente.
      */
+    public static void main(String[] args) {
 
+    }
 }

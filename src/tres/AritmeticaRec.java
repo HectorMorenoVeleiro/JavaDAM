@@ -6,19 +6,38 @@ public class AritmeticaRec {
     // programa que muestre los 50 primeros pares
 
     // metodo sacar termino n gracias a conocer el termino anterior a el
-    public static int terminoEne(int primerNumero, int diferencia) {
+
+    public static int primerNumero;
+    public static int diferenciaASumar;
+
+    /*
+     * METODO ITERATIVO
+     * for (...)... termin+diferencia/ acumula+termino;
+     */
+
+    // metodo recursivo
+    public static int terminoEne(int ene) {
         // recursividad
-        if (primerNumero > diferencia)
+        if (ene == 1) // caso limite/base
             return primerNumero;
         // recursividad caso generico
-        else
-            return terminoEne(primerNumero, diferencia);
+        else {
+            return terminoEne(ene - 1) + diferenciaASumar;
+        }
+    }
+
+    public static int sumaHastaEne(int n) {
+        if (n == 1) {
+            return primerNumero;
+        } else {
+            return terminoEne(n) + sumaHastaEne(n - 1);
+        }
     }
 
     public static void main(String[] args) {
 
-        int primerNumero = AjustesProgramas.introducirIntegerPorScanner("primer termino --> ");
-        int diferenciaASumar = AjustesProgramas.introducirIntegerPorScanner("diferencia a sumar --> ");
+        primerNumero = AjustesProgramas.introducirIntegerPorScanner("primer termino --> ");
+        diferenciaASumar = AjustesProgramas.introducirIntegerPorScanner("diferencia a sumar --> ");
         int terminoAObtener = AjustesProgramas.introducirIntegerPorScanner("dime que termino deseas obtener --> ");
 
         int terminoMomento = primerNumero;
@@ -30,7 +49,9 @@ public class AritmeticaRec {
         // acumula += terminoMomento;
         // }
 
-        System.out.println("\nel termino " + terminoAObtener + " es: " + terminoMomento);
+        // System.out.println("\nel termino " + terminoAObtener + " es: " +
+        // terminoMomento);
+        System.out.println("\nel termino " + terminoAObtener + " es: " + terminoEne(terminoAObtener));
         System.out.println("la suma de los " + terminoAObtener + " primeros terminos de la sucesion es " + acumula);
 
         System.out.println("la suma por FORMULA DA : "
